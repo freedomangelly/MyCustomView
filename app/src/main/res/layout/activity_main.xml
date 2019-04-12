@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    >
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <com.pzdf.testview.myview.MyTestView
+        app:darrenText="河南Darren"
+        app:darrenTextSize="20sp"
+        app:darrenTextColor="#FF0000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.pzdf.testview.myview.QQStepView
+        android:id="@+id/step_view"
+        app:outerColor="@color/colorPrimary"
+        app:innerColor="@color/colorAccent"
+        app:borderWidth="6dp"
+        app:stepTextColor="@color/colorAccent"
+        app:stepTextSize="16sp"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+
+    <com.pzdf.testview.myview.ColorTrackTextView
+        android:id="@+id/color_track_tv"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:changeColor="@color/colorAccent"
+        android:text="Hello World!" />
+
+    <com.pzdf.testview.myview.ProgressBar
+        android:id="@+id/progress_bar"
+        app:progressTextSize="20sp"
+        app:progressTextColor="@color/colorAccent"
+        app:innerBackground="@color/colorPrimary"
+        app:outerBackground="@color/colorAccent"
+        app:roundWidth="10dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
+
+    <com.pzdf.testview.myview.ShapeView
+        android:id="@+id/shape_view"
+        android:layout_centerInParent="true"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+    <com.pzdf.testview.myview.RatingBar
+        app:gradeNumber="5"
+        app:starNormal="@drawable/star_normal"
+        app:starFocus="@drawable/star_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+</HorizontalScrollView>
