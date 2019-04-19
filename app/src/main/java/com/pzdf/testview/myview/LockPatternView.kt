@@ -8,6 +8,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import android.widget.Toast
 import com.pzdf.testview.myview.MathUtil
 import java.util.*
 
@@ -297,12 +298,14 @@ class LockPatternView : View {
             MotionEvent.ACTION_UP -> {
                 mIsTouchPoint = false
                 // 回调密码获取监听 今晚8点再讲  显示错误，错误显示完之后要清空恢复默认
-
+                var text="密码为:";
                 mSelectPoints.forEach {
                     it.setStatusNormal();
-                    Log.i("info","it="+it.centerX)
+                    Log.i("info","it="+it.index)
+                    text+=it.index+1;
                 }
                 mSelectPoints.clear();
+                Toast.makeText(this.context,text,Toast.LENGTH_SHORT).show();
             }
         }
 
