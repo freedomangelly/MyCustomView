@@ -14,9 +14,12 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.darren.view_day23.LoadingView
-        android:id="@+id/load_view"
+    <!--<com.pzdf.testview.myview.LoadingView-->
+        <!--android:id="@+id/load_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
+    <com.pzdf.testview.myview.CircleView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

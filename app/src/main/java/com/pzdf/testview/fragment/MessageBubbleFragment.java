@@ -12,11 +12,11 @@ import com.pzdf.testview.R;
 
 import java.util.List;
 
-public class LodingViewFragment extends Fragment {
+public class MessageBubbleFragment extends Fragment {
     private ListView mListView;
     private List<String> mItems;
-    public static LodingViewFragment newInstance(String item) {
-        LodingViewFragment itemFragment = new LodingViewFragment();
+    public static MessageBubbleFragment newInstance(String item) {
+        MessageBubbleFragment itemFragment = new MessageBubbleFragment();
         Bundle bundle = new Bundle();
         bundle.putString("title", item);
         itemFragment.setArguments(bundle);
@@ -26,7 +26,7 @@ public class LodingViewFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_lodingview, null);
+        View view = inflater.inflate(R.layout.message_bubble_fragment, null);
 
         // 获取完之后是不是要设置为 GONE
 //        View loadingView = view.findViewById(R.id.load_view);

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_test);
 //        mColorTrackTextView=findViewById(R.id.color_track_tv);
 //        qqStepView = (QQStepView) findViewById(R.id.step_view);
 //        mShapeView = (ShapeView) findViewById(R.id.shape_view);

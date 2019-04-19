@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
@@ -15,10 +16,14 @@ import com.pzdf.testview.fragment.ColorTrackTextViewFragment;
 import com.pzdf.testview.fragment.LetterSideBarFragment;
 import com.pzdf.testview.fragment.LockPatternFragment;
 import com.pzdf.testview.fragment.LodingViewFragment;
+import com.pzdf.testview.fragment.LoveFragment;
+import com.pzdf.testview.fragment.MessageBubble2Fragment;
+import com.pzdf.testview.fragment.MessageBubbleFragment;
 import com.pzdf.testview.fragment.MyTestViewFragment;
 import com.pzdf.testview.fragment.ProgressBarFragment;
 import com.pzdf.testview.fragment.QQStepViewFragment;
 import com.pzdf.testview.fragment.RatingBarFragement;
+import com.pzdf.testview.fragment.RedPackageFragment;
 import com.pzdf.testview.fragment.ShapeViewFragment;
 import com.pzdf.testview.fragment.VerticalDragFragment;
 import com.pzdf.testview.myview.ColorTrackTextView;
@@ -28,13 +33,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Email 240336124@qq.com
- * Created by Darren on 2017/5/21.
+ * Email 674919909@qq.com
+ * Created by liuy on 2019/04/19.
  * Version 1.0
  * Description:
  */
 public class ViewPagerActivity extends AppCompatActivity {
-    private String[] items = {"MyTestView", "QQStepView", "ColorTrackTextView", "RatingBar", "ShapeView", "ProgressBar", "LetterSideBar", "verticalDrag", "LockPattern", "LodingView", "baseMenu"};
+    private String[] items = {
+            "自定义TextView",
+            "仿qq运动",
+            "会变色的TextView",
+            "拖动变星",
+            "仿58同城加载",
+            "圆形进度条",
+            "字母文本",
+            "垂直拖拽view",
+            "9宫格",
+            "黑圆",
+            "下拉显示菜单",
+            "仿qq气泡",
+            "qq气泡加强",
+            "花椒直播点赞效果",
+            "qq红包效果"
+    };
     private LinearLayout mIndicatorContainer;// 变成通用的
     private List<ColorTrackTextView> mIndicators;
     private MyViewPager mViewPager;
@@ -51,6 +72,11 @@ public class ViewPagerActivity extends AppCompatActivity {
         horizontalScrollView = findViewById(R.id.scroll_view);
         initIndicator();
         initViewPager();
+        addListener();
+    }
+
+    private void addListener() {
+
     }
 
     /**
@@ -95,6 +121,18 @@ public class ViewPagerActivity extends AppCompatActivity {
                     case 10:
                         fragment = BaseMenuFragment.newInstance(items[position]);
                         break;
+                    case 11:
+                        fragment = MessageBubbleFragment.newInstance(items[position]);
+                        break;
+                    case 12:
+                        fragment = MessageBubble2Fragment.newInstance(items[position]);
+                        break;
+                    case 13:
+                        fragment = LoveFragment.newInstance(items[position]);
+                        break;
+                    case 14:
+                        fragment = RedPackageFragment.newInstance(items[position]);
+                        break;
 
                 }
                 return fragment;
@@ -120,6 +158,7 @@ public class ViewPagerActivity extends AppCompatActivity {
 
                 // 1.左边  位置 position
                 ColorTrackTextView left = mIndicators.get(position);
+                horizontalScrollView.smoothScrollTo(left.getLeft(), 0);
                 left.setDirection(ColorTrackTextView.Direction.RIGHT_TO_LEFT);
                 left.setCurrentProgress(1 - positionOffset);
 
@@ -159,6 +198,14 @@ public class ViewPagerActivity extends AppCompatActivity {
             colorTrackTextView.setChangeColor(Color.RED);
             colorTrackTextView.setText(items[i]);
             colorTrackTextView.setLayoutParams(params);
+            final int ii=i;
+            colorTrackTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    horizontalScrollView.smoothScrollTo(v.getLeft(), 0);
+                    mViewPager.setCurrentItem(ii);
+                }
+            });
             // 把新的加入LinearLayout容器
             mIndicatorContainer.addView(colorTrackTextView);
             // 加入集合
