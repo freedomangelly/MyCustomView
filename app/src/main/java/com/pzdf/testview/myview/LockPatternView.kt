@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import com.pzdf.testview.myview.MathUtil
@@ -296,6 +297,12 @@ class LockPatternView : View {
             MotionEvent.ACTION_UP -> {
                 mIsTouchPoint = false
                 // 回调密码获取监听 今晚8点再讲  显示错误，错误显示完之后要清空恢复默认
+
+                mSelectPoints.forEach {
+                    it.setStatusNormal();
+                    Log.i("info","it="+it.centerX)
+                }
+                mSelectPoints.clear();
             }
         }
 
